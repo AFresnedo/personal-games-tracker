@@ -131,6 +131,13 @@ $ git push -u github master
 > NOTE: Do NOT make commits from new project to auth boilerplate. Only commit
 > to boilerplate if you are updating the template itself.
 
+#### 10. Update names from template ones
+
+* Title in layout.ejs
+* Logo in navbar
+* Descript/Repo link in package.json
+* Remove auth boilerplate readme content
+
 ## Next steps
 
 Begin development!
