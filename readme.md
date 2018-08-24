@@ -84,21 +84,22 @@ For example, if you don't need the `admin` column, you will want to delete it
 from the migrations and model for the user. Likewise, if you need to add
 something, add in both files.
 
-#### 5. Run the migrations
+#### 5. Install node modules from `package.json`
+
+```
+$ npm install
+```
+
+
+#### 6. Run the migrations
 
 ```
 $ sequelize db:migrate
 ```
 
-#### 6. Add a `.env` file with a `SESSION_SECRET` variable
+#### 7. Add a `.env` file with a `SESSION_SECRET` variable
 
 This can be set to anything password-like.
-
-#### 7. Install node modules from `package.json`
-
-```
-$ npm install
-```
 
 #### 8. Run your server and make sure everything works
 
