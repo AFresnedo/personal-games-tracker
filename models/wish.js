@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   wish.associate = function(models) {
     models.wish.belongsTo(models.user);
+    models.wish.belongsTo(models.game);
   };
   return wish;
 };

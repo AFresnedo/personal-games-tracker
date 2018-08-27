@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   played_game.associate = function(models) {
     models.played_game.belongsTo(models.user);
+    models.played_game.belongsTo(models.game);
   };
   return played_game;
 };

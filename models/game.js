@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
     build: DataTypes.STRING
   }, {});
   game.associate = function(models) {
-    // associations can be defined here
+    models.game.hasMany(models.wish);
+    models.game.hasMany(models.played_game);
   };
   return game;
 };
