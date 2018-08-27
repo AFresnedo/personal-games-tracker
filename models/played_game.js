@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     rating: DataTypes.INTEGER
   }, {});
   played_game.associate = function(models) {
-    // associations can be defined here
+    models.played_game.belongsTo(models.user);
   };
   return played_game;
 };

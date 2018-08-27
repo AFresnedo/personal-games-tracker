@@ -33,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   user.associate = function(models) {
     models.user.hasMany(models.wish);
+    models.user.hasMany(models.played_game);
   };
 
   // helpers go here, after ^ stuff and before return
