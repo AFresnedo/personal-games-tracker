@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     hype: DataTypes.INTEGER
   }, {});
   wish.associate = function(models) {
-    // associations can be defined here
+    models.wish.belongsTo(models.user);
   };
   return wish;
 };
