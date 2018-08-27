@@ -16,21 +16,20 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       validate: {
         len: {
-          args: [8, 16],
-          msg: 'Password must be between 8 and 16 characters long.'
+          args: [6, 24],
+          msg: 'Password must be between 6 and 24 characters long.'
         }
       }
     },
-    dob: DataTypes.DATE,
-    admin: DataTypes.BOOLEAN,
     image: {
       type: DataTypes.STRING,
       validate: {
         isUrl: {
-          msg: 'Not a valid img link.'
+          msg: 'Img link must be a valid URL.'
         }
       }
-    }
+    },
+    admin: DataTypes.BOOLEAN
   }, {
     hooks: {
       beforeCreate: function(pendingUser) {
@@ -47,8 +46,8 @@ module.exports = (sequelize, DataTypes) => {
 
   // helpers go here, after ^ stuff and before return
   user.prototype.isValidPassword = function(typedPassword) {
-    return bcrypt.compareSync(typedPassword, this.password)
-  }
+    return bcrypt.compareSync(typedPassword, this.password);
+  };
 
   return user;
 };
