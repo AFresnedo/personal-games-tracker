@@ -1,3 +1,28 @@
+# Contributors
+
+* filling out game info requires a lot of community work
+* giving credit is right
+* gamifiying the process will encourage contributions
+    * also minor but, obviously reward with free subscription
+        * 10 games = free year? (so 2 dollars credit)
+
+# Subscription
+
+* bi-annual
+    * does this mean every 6 months or every 2 years? lol
+    * 1 dollar every 6 months
+* keep the bots out
+* give away free subscriptions as incentives
+* donations are kind of weird and intrusive / annoying seeing them everywhere
+
+# Donations
+
+* no
+
+* "please just give half of your intended to donation to the first reasonable
+* charity you find. It makes me feel better, it'll make you feel better, and
+* most importantly it'll make whoever recieces the needed help feel better."
+
 # Data Scraping
 
 ## Sources
