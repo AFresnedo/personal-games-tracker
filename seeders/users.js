@@ -18,6 +18,7 @@ module.exports = {
       email: 'andfresnedo@gmail.com',
       password: 'adminbut6',
       admin: true,
+      sub: false,
       createdAt: new Date(),
       updatedAt: new Date()
     },
@@ -26,13 +27,15 @@ module.exports = {
       email: 'bob@test.org',
       password: 'bobbobbob',
       admin: false,
+      sub: false,
       createdAt: new Date(),
       updatedAt: new Date()
     },
     {
-      username: 'test',
-      email: 'test@test.org',
-      password: 'testing',
+      username: 'sub',
+      email: 'sub',
+      password: 'subbing',
+      sub: true,
       createdAt: new Date(),
       updatedAt: new Date()
     },
