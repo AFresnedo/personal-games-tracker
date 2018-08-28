@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   game.associate = function(models) {
     models.game.hasMany(models.wish);
     models.game.hasMany(models.played_game);
+    models.game.hasMany(models.style);
   };
   return game;
 };
