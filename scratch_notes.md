@@ -8,8 +8,6 @@
 * copies sold
 * players
     * singleplayer campaign, multiplayer only, etc
-* build
-    * core, dlc, expac
 
 ## Played_Game
 
@@ -17,17 +15,13 @@
 * rating granularity options
     * more ratings per game
 
-### TBD
-
-* style
-* genre
-
 # MVP
 
 * two functional lists
     * wish list
     * played list
 * some sort of scraping sample
+    * substitute api for it if possible, check noteboox & nate's slack
 * styling / responsiveness
     * complete materialize implementation
     * custom palette
@@ -44,6 +38,7 @@
     * list index for each user
     * add a wish
         * data validation
+* search functionality
 
 # Stretch Goals
 
@@ -70,3 +65,4 @@
     * % of users based
     * combo based (high rating of high % of users, for ex)
         * 80% of users who meet these conditions rated these games highly
+    * utilize negative ratings for "similar to you"
