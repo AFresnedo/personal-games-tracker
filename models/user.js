@@ -20,7 +20,8 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    admin: DataTypes.BOOLEAN
+    admin: DataTypes.BOOLEAN,
+    sub: DataTypes.BOOLEAN
   }, {
     hooks: {
       beforeCreate: function(pendingUser) {
