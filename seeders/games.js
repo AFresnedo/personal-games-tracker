@@ -15,8 +15,6 @@ module.exports = {
     return queryInterface.bulkInsert('games', [{
       title: 'bazooka blam',
       release: '2007',
-      genre: 'first person shooter',
-      style: ['arcade', 'cartooney', 'comical'],
       createdAt: new Date(),
       updatedAt: new Date()
     },
