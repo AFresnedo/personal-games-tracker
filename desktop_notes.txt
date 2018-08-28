@@ -1,0 +1,59 @@
+light/dark theme
+	- maybe something patreon-looking-like
+twitch login integration
+	- needs "really?" info page
+games played
+	- ratings
+		- "typical" game for me
+		- "abnormal" game for me
+	- bulk input from
+		- excel
+		- text
+	- visible to guests/uers
+		-optional
+wishlist
+	- hype meter
+	- visible to guests/users
+		-optional
+recommendations based on
+	- played
+	- wishlist
+	- other people's played/wishlist
+games coming out
+	- data scraping of that wikipedia page
+	- manual inputs from ppl
+		- include hype meter
+look and feel stuff
+	- SO MUCH EASIER to use than excel without losing organizational /
+	  processing tools
+	- drag and drop lists
+	- trello-like stuff?
+accounts/users
+	- ease of access is a priority
+		- never any question, ever, 100% this is most important
+			- at least until it's popular but even then really
+	- saving progress is a priority
+	- security/privacy is a priority
+		- MAKE THIS EVIDENT AT ALL TIMES (without being
+		  intrusive/distracting/annoying)
+twitch stuff
+	- lets viewers see ratings for games played
+		- "did you like it?"
+			- generic overall rating mode
+			- breakdown mode
+				- graphics, etc
+			- story/gameplay mode
+				- fun but bad story
+				- bad mechanics but great story
+privacy
+	- default is public view of games played / wishlist
+		- and ratings / hype for each
+		-options for turning each one off but also for group/tye
+bot prevention
+	- 2 dollar subscription for a year to prevent bots from voting
+game info
+	- wikipedia page link generated (or "wiki not found")
+		- allow manual links regardless
+			- good for not founds and for fan-based wikis
+		- need to check more than just wikipedia
+			- gamepedia, wookiepedia, shit like that
