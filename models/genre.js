@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     noun: DataTypes.STRING
   }, {});
   genre.associate = function(models) {
-    // associations can be defined here
+    models.genre.belongsToMany(models.game);
   };
   return genre;
 };
