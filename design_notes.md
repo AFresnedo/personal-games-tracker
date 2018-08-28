@@ -1,5 +1,18 @@
 # Data Scraping
 
+## Sources
+
+* greenmangaming
+* amazon
+* wikipedia
+* gamepedia
+* wookiepedia
+* (fan-pedias)
+* origin
+* steam
+* humble bundle
+* (forums)
+
 ## Permanent
 
 * isn't there something better than data scraping?
@@ -15,20 +28,13 @@
 
 * careful...
 
-## Expansions / DLC
-
-* these seem to murder my relational DB setup
-
 # Trello
 
 # UX
 
 * easy import
+    * can i import steam wishlist? origin? gog?
+        * amazon, greenmangaming?
 
 * compatiable with HLTB?
-
-# Database
-
-* should I use mongoDB instead?
-* it just seems that a relational setup is super simplistic
-    * hard to justify usefulness/uniqueness
+    * as in, use both....? hrm
