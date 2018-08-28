@@ -60,3 +60,10 @@
 * requires query(s) to get a single game's styles
 * how do I even link this? a massive join table?
     * games (many) to styles (many)
+
+# Genres
+
+## Table or Not
+
+* yes, similar to styles and I need to be able to "display all genres"
+    * for plenty of reasons, but a good one is a dropdown select

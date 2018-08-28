@@ -17,6 +17,11 @@
 * rating granularity options
     * more ratings per game
 
+### TBD
+
+* style
+* genre
+
 # MVP
 
 * two functional lists
