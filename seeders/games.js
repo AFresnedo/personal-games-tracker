@@ -12,11 +12,11 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-    return queryInterface.bulkInsert('projects', [{
-      name: 'Seattle Showdown',
-      githubLink: 'https://github.com/michaelscotthurley/seattle-showdown',
-      deployedLink: 'https://seattleshowdown.herokuapp.com/',
-      description: 'A social concert web application for the Seattle area. This app allows users to register for an account and use the Bandsintown API to search for concerts in the Seattle area by artist',
+    return queryInterface.bulkInsert('games', [{
+      title: 'bazooka blam',
+      release: '2007',
+      genre: 'first person shooter',
+      style: ['arcade', 'cartooney', 'comical'],
       createdAt: new Date(),
       updatedAt: new Date()
     },

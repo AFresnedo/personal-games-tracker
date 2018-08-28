@@ -38,3 +38,25 @@
 
 * compatiable with HLTB?
     * as in, use both....? hrm
+
+# Styles
+
+* this is what sets my game data apart
+* this should be a table
+    * need Brandi's help here
+    * I want this to be a table but maybe it's just an array
+
+## Table or Not
+
+### Pros
+
+* queries
+* adding styles
+* removing styles
+* authorative list
+
+### Cons
+
+* requires query(s) to get a single game's styles
+* how do I even link this? a massive join table?
+    * games (many) to styles (many)
