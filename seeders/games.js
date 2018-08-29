@@ -21,18 +21,18 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'The Whiskey Stone',
-      githubLink: 'https://github.com/scottheron/whisky',
-      deployedLink: 'https://whiskymatch.herokuapp.com/',
-      description: 'This is a web app that lets a user browse through single malt Scottish whiskies, favorite the ones they like and add tags their choices. The app datascapes from a whisky database to gather names, ages and tasting notes for each whisky.',
+      title: 'armsgeddon',
+      release: '1999',
+      dev: 'casuals',
+      pub: 'angels',
       createdAt: new Date(),
       updatedAt: new Date()
     },
     {
-      name: 'You Are Pizza',
-      githubLink: 'https://github.com/thomasvaeth/ga-pizza',
-      deployedLink: 'http://www.youarepizza.com/',
-      description: 'You Are Pizza is not about finding pizzerias, but about keeping track of all the pizza you have tried. I got the idea from a phrase about you are what you eat and I like to eat pizza. I was also lucky enough for Gustavo Zambelli to provide all the pizza images for the project.',
+      title: 'the sky is falling',
+      release: '2001',
+      dev: 'unoriginals',
+      pub: 'the clueless',
       createdAt: new Date(),
       updatedAt: new Date()
     },
