@@ -14,19 +14,24 @@ module.exports = {
     */
     return queryInterface.bulkInsert('genres', [
       {
-        noun: 'First Person Shooter'
+        long: 'First Person Shooter',
+        short: 'FPS'
       },
       {
-        noun: 'Role-Playing Game'
+        long: 'Role-Playing Game',
+        short: 'RPG'
       },
       {
-        noun: 'Action Role-Playing Game'
+        long: 'Action Role-Playing Game',
+        short: 'Arpg'
       },
       {
-        noun: 'Strategy Game'
+        noun: 'Strategy Game',
+        short: null
       },
       {
-        noun: 'Multiplayer Online Battle Arena'
+        noun: 'Multiplayer Online Battle Arena',
+        short: 'MOBA'
       }
     ], {});
   },

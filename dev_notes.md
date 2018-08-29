@@ -8,6 +8,12 @@
 
 * validate that "field" is a column in DB for respective table
 
+## Genres
+
+* validate long is not null
+    * okay if short is null
+    * probably want some kind of "real genre" check
+
 # Seeds
 
 * is "down" required and/or useful?
