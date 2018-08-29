@@ -8,8 +8,7 @@
 
 # Subscription
 
-* bi-annual
-    * does this mean every 6 months or every 2 years? lol
+* biannual
     * 1 dollar every 6 months
 * keep the bots out
 * give away free subscriptions as incentives
@@ -106,3 +105,12 @@
     * think about how ratings, that are not counted, are stored
         * another "offline ratings" table?
             * this then gets merged into "online ratings"?
+
+# Social Stuff
+
+## Forum
+
+## Following
+
+* atm, people just bookmark other people's profile
+* following is preferred because it offloads the bookmarking to the app
