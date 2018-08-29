@@ -1,5 +1,6 @@
 // try to load variables as close to the top as you can
-require('dotenv').config() // not assigned because not directly using in any way
+require('dotenv').config();
+// ^ not assigned because not directly using in any way
 // above line looks in .env file and loads any variables it finds to this scope
 // require needed modules
 var bodyParser = require('body-parser');
@@ -7,7 +8,7 @@ var ejsLayouts = require('express-ejs-layouts');
 var express = require('express');
 var flash = require('connect-flash');
 var passport = require('./config/passportConfig');
-var session = require('express-session');
+var session = require('express-session')
 
 // declare app variables
 var app = express();
@@ -39,6 +40,7 @@ app.use(function(req, res, next) {
 // include controllers (alphabetical order if nothing else)
 app.use('/auth', require('./controllers/auth'));
 app.use('/profile', require('./controllers/profile'));
+app.use('/lists', require('./controllers/lists'));
 
 // routes
 app.get('/', function(req, res) {
@@ -47,3 +49,5 @@ app.get('/', function(req, res) {
 
 // listen on port 3000
 app.listen(3000);
+
+module.exports = app;
