@@ -15,6 +15,8 @@ module.exports = {
     return queryInterface.bulkInsert('games', [{
       title: 'bazooka blam',
       release: '2007',
+      dev: 'onyx games',
+      pub: 'money grubber 2000',
       createdAt: new Date(),
       updatedAt: new Date()
     },
