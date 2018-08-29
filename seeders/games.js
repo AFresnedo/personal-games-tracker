@@ -37,13 +37,22 @@ module.exports = {
       updatedAt: new Date()
     },
     {
-      name: 'RSVPtree',
-      githubLink: 'https://github.com/BrittanyIRL/rsvpTree',
-      deployedLink: 'https://rsvptree.herokuapp.com/',
-      description: 'The purpose of it is to host rsvp tracking for wedding planning specifically. It details all the necessary items with which to then plan a wedding.',
+      title: 'happy days',
+      release: '2015',
+      dev: 'gingerbread men',
+      pub: 'unicorns',
       createdAt: new Date(),
       updatedAt: new Date()
-    }], {});
+    },
+    {
+      title: 'darkest days',
+      release: '2010',
+      dev: 'depressed people',
+      pub: 'opportunists',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }
+    ], {});
   },
 
   down: function (queryInterface, Sequelize) {
