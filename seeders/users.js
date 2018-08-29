@@ -33,7 +33,7 @@ module.exports = {
     },
     {
       username: 'sub',
-      email: 'sub',
+      email: 'sub@subscriber.net',
       password: 'subbing',
       sub: true,
       createdAt: new Date(),

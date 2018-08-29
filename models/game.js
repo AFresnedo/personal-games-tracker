@@ -10,9 +10,10 @@ module.exports = (sequelize, DataTypes) => {
     build: DataTypes.STRING
   }, {});
   game.associate = function(models) {
-    models.game.hasMany(models.wish);
-    models.game.hasMany(models.played_game);
-    models.game.hasMany(models.style);
+    models.game.belongsToMany(models.style,
+      { through: 'styles_to_games' });
+    models.game.belongsToMany(models.genre,
+      { through: 'genres_to_games' });
   };
   return game;
 };
