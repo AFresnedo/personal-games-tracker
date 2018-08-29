@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     noun: DataTypes.STRING
   }, {});
   genre.associate = function(models) {
-    models.genre.belongsToMany(models.game);
+    models.genre.belongsToMany(models.game,
+      { through: 'genres_to_games' });
   };
   return genre;
 };

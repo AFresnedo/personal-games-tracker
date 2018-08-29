@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     adj: DataTypes.STRING
   }, {});
   style.associate = function(models) {
-    models.style.belongsToMany(models.game);
+    models.style.belongsToMany(models.game,
+      { through: 'styles_to_games' });
   };
   return style;
 };
