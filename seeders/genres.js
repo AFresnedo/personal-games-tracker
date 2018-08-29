@@ -26,11 +26,11 @@ module.exports = {
         short: 'Arpg'
       },
       {
-        noun: 'Strategy Game',
+        long: 'Strategy Game',
         short: null
       },
       {
-        noun: 'Multiplayer Online Battle Arena',
+        long: 'Multiplayer Online Battle Arena',
         short: 'MOBA'
       }
     ], {});
