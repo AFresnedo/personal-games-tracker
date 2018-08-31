@@ -15,23 +15,33 @@ module.exports = {
     return queryInterface.bulkInsert('genres', [
       {
         long: 'First Person Shooter',
-        short: 'FPS'
+        short: 'FPS',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         long: 'Role-Playing Game',
-        short: 'RPG'
+        short: 'RPG',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         long: 'Action Role-Playing Game',
-        short: 'Arpg'
+        short: 'Arpg',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         long: 'Strategy Game',
-        short: null
+        short: null,
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         long: 'Multiplayer Online Battle Arena',
-        short: 'MOBA'
+        short: 'MOBA',
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
     ], {});
   },

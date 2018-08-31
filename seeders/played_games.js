@@ -17,25 +17,33 @@ module.exports = {
       gameId: 2,
       userId: 2,
       rating: 3,
-      notes: 'these are notes!'
+      notes: 'these are notes!',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       gameId: 3,
       userId: 1,
       rating: 9,
-      notes: '9 rating is pretty high at time of writing'
+      notes: '9 rating is pretty high at time of writing',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       gameId: 4,
       userId: 1,
       rating: 1,
-      notes: '1 rating is always going to be low'
+      notes: '1 rating is always going to be low',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       gameId: 4,
       userId: 2,
       rating: 1,
-      notes: '1 rating is always going to be low'
+      notes: '1 rating is always going to be low',
+      createdAt: new Date(),
+      updatedAt: new Date()
     }
     ], {});
   },
