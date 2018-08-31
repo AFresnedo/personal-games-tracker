@@ -1,24 +1,22 @@
-// try to load variables as close to the top as you can
+// load value-hidden variables
 require('dotenv').config();
-// ^ not assigned because not directly using in any way
-// above line looks in .env file and loads any variables it finds to this scope
-// require needed modules
-var bodyParser = require('body-parser');
-var ejsLayouts = require('express-ejs-layouts');
-var express = require('express');
-var flash = require('connect-flash');
-var passport = require('./config/passportConfig');
-var session = require('express-session')
+// load modules
+const bodyParser = require('body-parser'); // for req.body
+const ejsLayouts = require('express-ejs-layouts'); // view engine
+const express = require('express'); // web framework
+const flash = require('connect-flash'); // flash messages
+const passport = require('./config/passportConfig'); // auth middleware
+const session = require('express-session'); // persistant logins
 
-// declare app variables
-var app = express();
+// declare application
+const app = express();
 
+//
 // set and use statements
+//
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
 app.use(bodyParser.urlencoded({ extended: false }));
-// give the session the secret key but have a key required so nobody else
-// can see session data (so just the session data has it)
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
@@ -26,13 +24,14 @@ app.use(session({
 }));
 // flash and passport depend on session
 app.use(flash());
-app.use(passport.initialize()); // initialize is the config logic?
-app.use(passport.session()); // obviously for sessions/passport work
+app.use(passport.initialize());
+app.use(passport.session());
 
-// custom middleware
-app.use(function(req, res, next) {
-  // is locals the custom place to put stuff?
+// middleware for all controller routes
+app.use( (req, res, next) => {
+  // add user ident to for-view scope: res.locals
   res.locals.currentUser = req.user;
+  // add flash alerts, from controllers, to for-view scope: res.locals
   res.locals.alerts = req.flash();
   next();
 });
@@ -40,14 +39,17 @@ app.use(function(req, res, next) {
 // include controllers (alphabetical order if nothing else)
 app.use('/auth', require('./controllers/auth'));
 app.use('/profile', require('./controllers/profile'));
-app.use('/lists', require('./controllers/lists'));
+app.use('/wishes', require('./controllers/wishes'));
 
-// routes
-app.get('/', function(req, res) {
+// routes outside of controllers
+app.get('/', (req, res) => {
   res.render('home');
 });
 
-// listen on port 3000
-app.listen(3000);
+// open a socket, if index wasn't sourced
+if (!module.parent) {
+  app.listen(3000);
+}
 
+// for testing
 module.exports = app;

@@ -115,3 +115,7 @@
 * atm, people just bookmark other people's profile
 * following is preferred because it offloads the bookmarking to the app
 * notify followers when a list is updated
+
+# Wish/Played Indexes
+
+* instead of a pagination of lists in alphabetical order, provide a search pg
