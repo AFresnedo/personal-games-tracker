@@ -1,23 +1,29 @@
-# Auth Boilerplate: How to Use
+# Personal Games Tracker
 
 ## What Is It?
 
-A template for each full stack app using express and auth to build the
-scaffolding for authenticating and authorizing users. It is the pieces of code
-that are common between all applications using these techonologies. Using it
-means saving time when implementing these features because code is already
-written and bug free.
+An app for users to keep a history of their played games and game wish list.
+Users can also share their lists with others. Based on their history and
+tastes, the app can recommend games to add to a user's wish list.
 
-## What It Includes
+## Features for User Tiers
 
-* sequelize model and migration for user model
-* settings for postgresql
-* passport and passport-local for authentication
-* express sessions to keep user logged in from page to page
-* connect-flash for error/success messages
-* Bcrypt for hashing passwords
+### All
 
-## Configuration
+* viewing access to any public lists
+
+### Registered
+
+* personal played list
+* personal wish list
+* app recommendations
+
+### Registered & Subscribed
+
+* have their ratings and hype values added to community metrics, if desired
+* rights to edit the app's game library
+
+## App Configuration
 
 ### User Model
 

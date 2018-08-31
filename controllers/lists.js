@@ -14,7 +14,15 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  res.send('reached lists of user: ' + req.params.id);
+  db.played_game.findAll({
+    where: { }
+  }).then( (allAuthors) => {
+    res.send('got lists');
+  }).catch( (err) => {
+    console.log(err);
+    req.flash('Unable to display user\'s list');
+    res.redirect('/lists');
+  });
 });
 
 module.exports = router;
