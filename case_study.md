@@ -27,23 +27,31 @@ This case came about when trying to write the controller route function for
 * very common queries that are core to the model's design
     * we should write them in the model, instead of rewriting them every time
 
-### Not Utilizing Model
+### Not Utilizing M of MVC
 
 * writing in model gives a more proper seperation of interests
-    * controllers do not need to know if a column name is changed
+    * controllers should not need to know if a column name is changed
 
 # Second Approach
 
-## Skinny Controller
+## Skinny Controller by Removing Query Implementation
 
 * easier to maintain
     * interface of query less likely to change than the implementation
-* easier to test
-    * unit test need only test if the parameters and routes are correct
-        * skips testing proper retrieval of data
+    * before, if anything had changed about how the query is performed,
+        * it would break every single controller that had used it
+        * every controller using it would need to be updated, one by one
 
-## Fatter Model
+## Fatter Model by Adding Query Implementations
 
-* create a function in model that performs the query
-    * now, only 1 place to make changes to query
-    * now, only 1 place to test if the query is performing correctly
+* now, only 1 place to make changes to query, for all usages to be updated
+* easier to find
+    * just do a search for the model method call, to see who uses it
+    * the actual implementation is only inside the model, instead of spread out
+
+## Easier Testing
+
+* test the models for validity of data retrieval
+    * now, only 1 place to test each validity of each type of query
+* only test the controllers for proper routing/redirecting and parameters
+    * without fatter models, would need to test the retrieved data for each
