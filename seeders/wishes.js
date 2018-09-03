@@ -1,12 +1,29 @@
 /*
-Async & Await:
-Await is used to "pause script" until promise is returned. Async tells
-javascript that async-like functionality is to be enabled in the scope.
+Async, Promise, & Await:
+Await is used to "pause script" until Promise is returned. Async tells
+javascript that async-like functionality is to be enabled in the function.
 */
 'use strict';
 
+// import models
+let models = require('../models');
+
 module.exports = {
-  up: async function(queryInterface) {
+  up: async function(queryInterface, Sequelize) {
+
+    // get "limit" amount of random game tuples
+    let gameTuples = await models.game.findAll(
+      {
+        limit: 50,
+        order: Sequelize.fn('RANDOM')
+      });
+    // get "limit" amount of random user tuples
+    let userTuples = await models.user.findAll(
+      {
+        limit: 20,
+        order: Sequelize.fn('RANDOM')
+      });
+
 
     return queryInterface.bulkInsert('wishes', [
     {
