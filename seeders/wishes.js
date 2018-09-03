@@ -25,8 +25,9 @@ module.exports = {
         order: Sequelize.fn('RANDOM')
       });
     // declare tuples to add to wishes
-    let wishes = Array(80).fill();
-    wishes.map( (tuple, i) => {
+    let wishes = Array(80).fill(-1);
+    // fill wishes with tuples
+    wishes = wishes.map( (tuple, i) => {
       // pick a game to wish
       let wishedGame = gameTuples[i % gameTuples.length].id;
       // pick a wisher
@@ -40,7 +41,8 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       }
-      return wishes;
+      // return wish for map to place
+      return wish;
     });
     return queryInterface.bulkInsert('wishes', wishes, {});
   },
