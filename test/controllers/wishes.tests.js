@@ -1,19 +1,22 @@
-const expect = require('chai').expect;
 const request = require('supertest');
 const app = require('../../index');
 
-// get lists index
-describe('GET /wishes', () => {
-  it('should return a 200 response', done => {
-    request(app).get('/')
-      .expect(200, done);
-  });
-});
+describe('Wishes Controller Unit Tests', function() {
 
-// get lists of user
-describe('GET /wishes/1', () => {
-  it('should return a 200 response', done => {
-    request(app).get('/lists/1')
-      .expect(200, done);
+  // get search for all wishes page
+  describe('GET /wishes', () => {
+    it('should return a 200 response', done => {
+      request(app).get('/')
+        .expect(200, done);
+    });
   });
+
+  // get given user's wish list page
+  describe('GET /wishes/1', () => {
+    it('should return a 200 response', done => {
+      request(app).get('/wishes/1')
+        .expect(200, done);
+    });
+  });
+
 });

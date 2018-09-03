@@ -1,7 +1,7 @@
 const db = require('../../models');
 
 // unit test suite for wish model
-describe('Wish Unit Tests', function() {
+describe('Wish Model Unit Tests', function() {
 
   // prepare database for wish model test suite
   before(function(done) {
