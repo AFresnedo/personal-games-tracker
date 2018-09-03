@@ -1,7 +1,13 @@
+/*
+Async & Await:
+Await is used to "pause script" until promise is returned. Async tells
+javascript that async-like functionality is to be enabled in the scope.
+*/
 'use strict';
 
 module.exports = {
-  up: function(queryInterface) {
+  up: async function(queryInterface) {
+
     return queryInterface.bulkInsert('wishes', [
     {
       gameId: 1,
