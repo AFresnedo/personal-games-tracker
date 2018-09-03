@@ -7,7 +7,7 @@ const client = igdb(process.env.IGDB_API_KEY);
 
 client.games({
   fields: '*',
-  limit: 80,
+  limit: 50,
   offset: Math.floor(Math.random() * 100) + Math.floor(Math.random() * 10)
 }, [ 'name' ]).then( res => {
   console.log(res);
