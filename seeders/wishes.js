@@ -28,5 +28,9 @@ module.exports = {
       updatedAt: new Date()
     }
     ], {});
+  },
+
+  down: function(queryInterface) {
+    return queryInterface.bulkDelete('wishes');
   }
 };

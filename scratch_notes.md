@@ -15,6 +15,12 @@
 * rating granularity options
     * more ratings per game
 
+# Stuff To Do
+
+* import real genre data
+* drag & drop functionality for wish list
+* light/dark themes
+
 # MVP
 
 * two functional lists
