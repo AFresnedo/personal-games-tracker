@@ -11,6 +11,7 @@ let models = require('../models');
 module.exports = {
   up: async function(queryInterface, Sequelize) {
 
+    // TODO refactor fetching tuples to run in parallel
     // get "limit" amount of random game tuples
     let gameTuples = await models.game.findAll(
       {
@@ -24,7 +25,7 @@ module.exports = {
         order: Sequelize.fn('RANDOM')
       });
     // declare tuples to add to wishes
-    wishes = Array(80).fill();
+    let wishes = Array(80).fill();
     wishes.map( (tuple, i) => {
       // pick a game to wish
       let wishedGame = gameTuples[i % gameTuples.length].id;
@@ -34,41 +35,14 @@ module.exports = {
       let wish = {
         gameId: wishedGame,
         userId: wisher,
-        hype: Math.floor(Math.random() * 10) + 1;
+        hype: Math.floor(Math.random() * 10) + 1,
         notes: 'this wish was dynamically generated',
         createdAt: new Date(),
         updatedAt: new Date()
       }
-      return wish;
+      return wishes;
     });
-
-
-    return queryInterface.bulkInsert('wishes', [
-    {
-      gameId: 1,
-      userId: 2,
-      hype: 3,
-      notes: 'these are notes!',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      gameId: 1,
-      userId: 1,
-      hype: 9,
-      notes: '9 hype is pretty high at time of writing',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      gameId: 2,
-      userId: 1,
-      hype: 1,
-      notes: '1 hype is always going to be low',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }
-    ], {});
+    return queryInterface.bulkInsert('wishes', wishes, {});
   },
 
   down: function(queryInterface) {
