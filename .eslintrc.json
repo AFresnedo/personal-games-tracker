@@ -1,5 +1,9 @@
 {
     "globals": {
+        "before": false,
+        "after": false,
+        "beforeEach": false,
+        "afterEach": false,
         "describe": false,
         "it": false
     },

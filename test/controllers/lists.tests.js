@@ -14,16 +14,16 @@ before(function(done) {
 });
 
 // get lists index
-describe('GET /lists', () => {
-  it('should return a 200 response', done => {
+describe('GET /lists', function() {
+  it('should return a 200 response', function(done) {
     request(app).get('/')
       .expect(200, done);
   });
 });
 
 // get lists of user
-describe('GET /lists/1', () => {
-  it('should return a 200 response', done => {
+describe('GET /lists/1', function() {
+  it('should return a 200 response', function(done) {
     request(app).get('/lists/1')
       .expect(200, done);
   });

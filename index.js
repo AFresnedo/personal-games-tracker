@@ -1,3 +1,4 @@
+const log = require('why-is-node-running');
 // load value-hidden variables
 require('dotenv').config();
 // load modules
@@ -50,6 +51,10 @@ app.get('/', (req, res) => {
 if (!module.parent) {
   app.listen(3000);
 }
+
+setTimeout(function() {
+  log();
+}, 100);
 
 // for testing
 module.exports = app;
