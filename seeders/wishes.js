@@ -23,6 +23,24 @@ module.exports = {
         limit: 20,
         order: Sequelize.fn('RANDOM')
       });
+    // declare tuples to add to wishes
+    wishes = Array(80).fill();
+    wishes.map( (tuple, i) => {
+      // pick a game to wish
+      let wishedGame = gameTuples[i % gameTuples.length].id;
+      // pick a wisher
+      let wisher = userTuples[i % userTuples.length].id;
+      // create wish
+      let wish = {
+        gameId: wishedGame,
+        userId: wisher,
+        hype: Math.floor(Math.random() * 10) + 1;
+        notes: 'this wish was dynamically generated',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
+      return wish;
+    });
 
 
     return queryInterface.bulkInsert('wishes', [
