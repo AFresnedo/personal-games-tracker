@@ -1,18 +1,15 @@
+require('dotenv').config();
+
 'use strict';
 
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
 
-      Example:
-      return queryInterface.bulkInsert('Person', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
-    return queryInterface.bulkInsert('games', [
+    // declare games tuples array
+    let games = [];
+
+    // add manual seeds
+    games.push(
       {
         title: 'bazooka blam',
         release: '2007',
@@ -53,7 +50,28 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       }
-    ], {});
+    );
+
+    // read names, create an array of "game name" elements
+    let lines = require('fs').readFileSync(process.env.FILE_PATH, 'utf-8')
+      .split('\n')
+      .filter(Boolean);
+
+    // add seeds from file
+    lines.forEach( line => {
+      console.log(line);
+      games.push(
+        {
+          title: line,
+          release: 'tbd',
+          dev: 'tbd',
+          pub: 'tbd',
+          createdAt: new Date(),
+          updatedAt: new Date()
+        }
+      );
+    });
+    return queryInterface.bulkInsert('games', games, {});
   },
 
   down: function(queryInterface) {
