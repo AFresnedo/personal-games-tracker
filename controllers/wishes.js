@@ -4,10 +4,6 @@ const router = express.Router();
 const db = require('../models');
 // for async
 const async = require('async');
-// middleware
-const isOwner = require('../middleware/isOwner');
-// helper functions
-const filters = require('../helpers/filters');
 
 router.get('/', (req, res) => {
   // TODO prompt viewer to search for a user, return pagination of results
@@ -48,7 +44,23 @@ router.get('/:id', (req, res) => {
 
 // TODO fix hardcode problem
 router.get('/:id/edit', (req, res) => {
-  res.send('you own this page!');
+  if (isOwner(req)) {
+    res.send('you own this page!');
+  }
 });
+
+//
+// filters
+//
+
+function isOwner(req) {
+  if (req.user.id === req.params.id) {
+    return true;
+  }
+  else {
+    req.flash('error', 'You do not have access to that page.');
+    res.redirect('/');
+  }
+}
 
 module.exports = router;

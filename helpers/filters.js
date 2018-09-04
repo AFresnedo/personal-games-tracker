@@ -1,9 +1,9 @@
-const isOwner = function(userId, ownerId) {
+const isOwner = function(req) {
   if (userId === ownerId) {
     return true;
   }
   else {
-    return false
+    return false;
   }
 
 }
