@@ -19,13 +19,18 @@ function getRandFifty(callsRemaining) {
     // done
     // TODO call seeder
     console.log(gamesList);
-    fs.writeFile(path, gamesList, err => {
+    // create a new file, or overwrite old one
+    fs.writeFileSync(path, '', err => {
       if (err) {
         return console.log(err);
       }
       else {
-        console.log('file saved!');
+        console.log('New Game List Created!');
       }
+    });
+    // add a game title at each line
+    gamesList.forEach( gameName => {
+      fs.appendFileSync(path, gameName + '\n');
     });
   }
   else {
@@ -47,7 +52,4 @@ function getRandFifty(callsRemaining) {
   }
 }
 
-getRandFifty(2);
-
-async function asyncRandFifty() {
-}
+getRandFifty(5);
