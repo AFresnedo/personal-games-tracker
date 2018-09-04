@@ -10,4 +10,11 @@ describe('Wish Model Unit Tests', function() {
     });
   });
 
+  describe('Get All Wishes of User 1', function() {
+    let userId = 1;
+    db.wish.findAll({
+      where: { userId }
+    });
+  });
+
 });

@@ -11,10 +11,5 @@ module.exports = (sequelize, DataTypes) => {
     models.wish.belongsTo(models.game);
   };
 
-  wish.prototype.getList = function(userId) {
-    // fail test
-    userId = null;
-    return userId;
-  };
   return wish;
 };

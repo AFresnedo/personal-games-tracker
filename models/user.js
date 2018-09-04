@@ -42,5 +42,20 @@ module.exports = (sequelize, DataTypes) => {
     return bcrypt.compareSync(typedPassword, this.password);
   };
 
+  // TODO find better home for this code, if it needs one
+  // get all wishes for given user
+  user.prototype.getWishes = function() {
+    let userId = this.id;
+    require('db').findAll({
+      where: { userId }
+    }).then(function(usersWishes) {
+      // return array of wish tuples
+      return usersWishes;
+    }).catch(function(err) {
+      // give caller a chance to handle error
+      throw err;
+    });
+  };
+
   return user;
 };

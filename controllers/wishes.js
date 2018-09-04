@@ -12,26 +12,23 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  let userId = req.params.id;
-  db.wish.findAll({
-    where: { userId }
-  }).then((wishes) => {
-    //
-    // TODO send the game info of each wish
-    //
-    // get all gameIds
-    let gameIds = [];
-    wishes.forEach((wish) => {
-      gameIds.push(wish.gameId);
-    });
-    console.log('gameIds:', gameIds);
-    // for each gameId, get game info
-    // TODO optimize by comparing to native javascript (or another design)
-    async.parallel
-    res.send(wishes);
-  }).catch((err) => {
-    console.log(err);
-    req.flash('error', 'Unable to display requested wish list');
+  let id = req.params.id;
+  // get user's model
+  db.user.findOne({
+    where: { id }
+  }).then(function(user) {
+    try {
+      user.getWishes();
+      res.send('successful');
+    }
+    catch(err) {
+      console.error(err);
+      req.flash('error', 'Unable to display requested wish list');
+      res.redirect('/wishes');
+    }
+  }).catch(function(err) {
+    console.error(err);
+    req.flash('error', 'Unable to retrive requested user\'s wish list');
     res.redirect('/wishes');
   });
 });
