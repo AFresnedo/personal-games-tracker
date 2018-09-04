@@ -14,6 +14,7 @@ function getRandFifty(callsRemaining) {
   if (callsRemaining <= 0) {
     // done
     // TODO call seeder
+    console.log(gamesList);
   }
   else {
     // add 50 more game titles to the list
@@ -27,7 +28,6 @@ function getRandFifty(callsRemaining) {
       res.body.forEach( (obj) => {
         gamesList.push(obj.name);
       });
-      console.log(gamesList);
       getRandFifty(callsRemaining - 1);
     }).catch( err => {
       console.log(err);
@@ -36,3 +36,6 @@ function getRandFifty(callsRemaining) {
 }
 
 getRandFifty(2);
+
+async function asyncRandFifty() {
+}
