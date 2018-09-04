@@ -5,6 +5,8 @@ const router = express.Router();
 const db = require('../models');
 // for async
 const async = require('async');
+// middleware
+const isOwner = require('../middleware/isOwner');
 
 router.get('/', (req, res) => {
   // TODO prompt viewer to search for a user, return pagination of results
@@ -13,6 +15,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   let userId = req.params.id;
+  // TODO replace query with a join, if appropriate
   // get users' wishes
   db.wish.findAll({
     where: { userId }
@@ -40,6 +43,11 @@ router.get('/:id', (req, res) => {
     req.flash('error', 'Unable to retrieve wish list');
     res.redirect('/wishes');
   });
+});
+
+// TODO fix hardcode problem
+router.get('/:id/edit', isOwner(166), (req, res) => {
+  res.send('you own this page!');
 });
 
 module.exports = router;

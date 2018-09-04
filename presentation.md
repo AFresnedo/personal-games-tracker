@@ -1,6 +1,9 @@
 # Topics
 
 * case study
+    * where to write sequel queries for testing
+        * a seperate file/folder for controllers to draw from?
+            * orginally intended models, but model scope seems problematic
 * seed generation
 * click and drag wish list
     * updating hype
