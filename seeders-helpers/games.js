@@ -5,6 +5,10 @@ require('dotenv').config();
 const igdb = require('igdb-api-node').default;
 const client = igdb(process.env.IGDB_API_KEY);
 
+// nodeJS filesystem I/O
+let fs = require('fs');
+let path = process.env.FILE_PATH;
+
 // list of real game names
 let gamesList = [];
 
@@ -15,6 +19,14 @@ function getRandFifty(callsRemaining) {
     // done
     // TODO call seeder
     console.log(gamesList);
+    fs.writeFile(path, gamesList, err => {
+      if (err) {
+        return console.log(err);
+      }
+      else {
+        console.log('file saved!');
+      }
+    });
   }
   else {
     // add 50 more game titles to the list
