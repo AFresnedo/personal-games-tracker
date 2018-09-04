@@ -5,6 +5,8 @@ const router = express.Router();
 const db = require('../models');
 // for async
 const async = require('async');
+// middleware
+const isOwner = require('../middleware/isOwner');
 
 router.get('/', (req, res) => {
   // TODO prompt viewer to search for a user, return pagination of results
@@ -13,27 +15,39 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   let userId = req.params.id;
+  // TODO replace query with a join, if appropriate
+  // get users' wishes
   db.wish.findAll({
     where: { userId }
-  }).then((wishes) => {
-    //
-    // TODO send the game info of each wish
-    //
-    // get all gameIds
-    let gameIds = [];
-    wishes.forEach((wish) => {
-      gameIds.push(wish.gameId);
+  }).then(function(wishes) {
+    let games = [];
+    // find every wished game, and add it to games, before rendering view
+    async.each(wishes, function(wish, done) {
+      db.game.findById(wish.gameId).then(function(found) {
+        games.push(found);
+        done();
+      }).catch(function(err) {
+        console.log('err finding game from wishlist', err);
+        done();
+      });
+    }, function() {
+      // send only game titles
+      let titles = [];
+      games.forEach(function(game) {
+        titles.push(game.dataValues.title);
+      });
+      res.render('wishes/show', { titles });
     });
-    console.log('gameIds:', gameIds);
-    // for each gameId, get game info
-    // TODO optimize by comparing to native javascript (or another design)
-    async.parallel
-    res.send(wishes);
-  }).catch((err) => {
-    console.log(err);
-    req.flash('error', 'Unable to display requested wish list');
+  }).catch(function(err) {
+    console.error(err);
+    req.flash('error', 'Unable to retrieve wish list');
     res.redirect('/wishes');
   });
+});
+
+// TODO fix hardcode problem
+router.get('/:id/edit', isOwner(166), (req, res) => {
+  res.send('you own this page!');
 });
 
 module.exports = router;
