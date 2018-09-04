@@ -28,7 +28,12 @@ router.get('/:id', (req, res) => {
         done();
       });
     }, function() {
-      res.render('wishes/show', { games });
+      // send only game titles
+      let titles = [];
+      games.forEach(function(game) {
+        titles.push(game.dataValues.title);
+      });
+      res.render('wishes/show', { titles });
     });
   }).catch(function(err) {
     console.error(err);

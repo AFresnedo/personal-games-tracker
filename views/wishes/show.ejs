@@ -1,1 +1,7 @@
-<%= games %>
+<% if (titles) { %>
+    <% titles.forEach(function(title) { %>
+        <p><%= title %></p>
+    <% }); %>
+<% } else {%>
+    Wish list is empty.
+<% } %>
