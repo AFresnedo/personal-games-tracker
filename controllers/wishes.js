@@ -4,6 +4,8 @@ const router = express.Router();
 const db = require('../models');
 // for async
 const async = require('async');
+// middleware
+const loggedIn = require('../middleware/loggedIn');
 
 router.get('/', (req, res) => {
   // TODO prompt viewer to search for a user, return pagination of results
@@ -43,8 +45,9 @@ router.get('/:id', (req, res) => {
 });
 
 // TODO fix hardcode problem
-router.get('/:id/edit', (req, res) => {
-  if (isOwner(req)) {
+router.get('/:id/edit', loggedIn, (req, res) => {
+  console.log('req in route', req.params.id);
+  if (isOwner(req, res)) {
     res.send('you own this page!');
   }
 });
@@ -53,8 +56,10 @@ router.get('/:id/edit', (req, res) => {
 // filters
 //
 
-function isOwner(req) {
-  if (req.user.id === req.params.id) {
+function isOwner(req, res) {
+  console.log('req in helper', req.params.id);
+  console.log('req user in helper', req.user.id);
+  if (req.user.id == req.params.id) {
     return true;
   }
   else {
