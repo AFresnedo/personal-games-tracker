@@ -17,7 +17,19 @@ router.get('/:id', (req, res) => {
   db.wish.findAll({
     where: { userId }
   }).then(function(wishes) {
-    res.send('successful');
+    let games = [];
+    // find every wished game, and add it to games, before rendering view
+    async.each(wishes, function(wish, done) {
+      db.game.findById(wish.gameId).then(function(found) {
+        games.push(found);
+        done();
+      }).catch(function(err) {
+        console.log('err finding game from wishlist', err);
+        done();
+      });
+    }, function() {
+      res.render('wishes/show', { games });
+    });
   }).catch(function(err) {
     console.error(err);
     req.flash('error', 'Unable to retrieve wish list');
