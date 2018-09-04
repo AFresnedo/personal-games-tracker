@@ -1,4 +1,3 @@
-// for routes
 const express = require('express');
 const router = express.Router();
 // for models
@@ -7,6 +6,8 @@ const db = require('../models');
 const async = require('async');
 // middleware
 const isOwner = require('../middleware/isOwner');
+// helper functions
+const filters = require('../helpers/filters');
 
 router.get('/', (req, res) => {
   // TODO prompt viewer to search for a user, return pagination of results
@@ -46,7 +47,7 @@ router.get('/:id', (req, res) => {
 });
 
 // TODO fix hardcode problem
-router.get('/:id/edit', isOwner(166), (req, res) => {
+router.get('/:id/edit', (req, res) => {
   res.send('you own this page!');
 });
 
