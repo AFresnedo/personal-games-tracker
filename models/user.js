@@ -1,5 +1,6 @@
 'use strict';
 var bcrypt = require('bcrypt');
+
 module.exports = (sequelize, DataTypes) => {
   var user = sequelize.define('user', {
     username: DataTypes.STRING,
@@ -40,21 +41,6 @@ module.exports = (sequelize, DataTypes) => {
   // helpers go here, after ^ stuff and before return
   user.prototype.isValidPassword = function(typedPassword) {
     return bcrypt.compareSync(typedPassword, this.password);
-  };
-
-  // TODO find better home for this code, if it needs one
-  // get all wishes for given user
-  user.prototype.getWishes = function() {
-    let userId = this.id;
-    require('db').findAll({
-      where: { userId }
-    }).then(function(usersWishes) {
-      // return array of wish tuples
-      return usersWishes;
-    }).catch(function(err) {
-      // give caller a chance to handle error
-      throw err;
-    });
   };
 
   return user;

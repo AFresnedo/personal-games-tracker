@@ -12,23 +12,15 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  let id = req.params.id;
-  // get user's model
-  db.user.findOne({
-    where: { id }
-  }).then(function(user) {
-    try {
-      user.getWishes();
-      res.send('successful');
-    }
-    catch(err) {
-      console.error(err);
-      req.flash('error', 'Unable to display requested wish list');
-      res.redirect('/wishes');
-    }
+  let userId = req.params.id;
+  // get users' wishes
+  db.wish.findAll({
+    where: { userId }
+  }).then(function(wishes) {
+    res.send('successful');
   }).catch(function(err) {
     console.error(err);
-    req.flash('error', 'Unable to retrive requested user\'s wish list');
+    req.flash('error', 'Unable to retrieve wish list');
     res.redirect('/wishes');
   });
 });
