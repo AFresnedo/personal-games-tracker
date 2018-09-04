@@ -1,6 +1,6 @@
-require('dotenv').config();
-
 'use strict';
+
+require('dotenv').config();
 
 module.exports = {
   up: function(queryInterface, Sequelize) {

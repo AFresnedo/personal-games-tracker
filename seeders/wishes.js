@@ -40,7 +40,7 @@ module.exports = {
         notes: 'this wish was dynamically generated',
         createdAt: new Date(),
         updatedAt: new Date()
-      }
+      };
       // return wish for map to place
       return wish;
     });

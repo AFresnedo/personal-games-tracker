@@ -18,6 +18,7 @@
         "plugin:node/recommended", "plugin:react/recommended"
     ],
     "rules": {
+        "computed-property-spacing": ["on", "never"],
         "semi": ["error", "always"],
         "quotes": ["warn", "single"],
         "space-in-parens": ["off", "never"],
