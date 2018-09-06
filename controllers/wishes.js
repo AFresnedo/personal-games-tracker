@@ -36,7 +36,7 @@ router.get('/:id', (req, res) => {
       games.forEach(function(game) {
         titles.push(game.dataValues.title);
       });
-      res.render('wishes/show', { titles });
+      res.render('wishes/show', { titles, ownerId: userId });
     });
   }).catch(function(err) {
     console.error(err);
