@@ -11,10 +11,8 @@ module.exports = (sequelize, DataTypes) => {
     models.wish.belongsTo(models.game);
   };
 
-  // TODO check if this wish is owned by userId
+  // return true if owner id matches arg, else false
   wish.prototype.owned = function(userIdent) {
-    // TODO access the association
-    console.log('owner\'s id is', this.userId);
     return this.userId === userIdent;
   }
   return wish;

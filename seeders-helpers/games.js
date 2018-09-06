@@ -1,3 +1,10 @@
+/* Current settings make 5 calls to retrieve 50 games each. To change the
+ * amount of calls, change the call to getRandFifty(x) where x is the amount of
+ * calls. This file creates a game list in the path defined by FILE_PATH in
+ * your .env file.
+ */
+
+
 // for igdb api key
 require('dotenv').config();
 

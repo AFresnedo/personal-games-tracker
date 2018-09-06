@@ -19,7 +19,6 @@ describe('Wish Model Unit Tests', function() {
   });
 
   // setup basic not-yet-saved testing data
-  // TODO determine if done callback is required
   before(function() {
     unSavedOne = db.wish.build({
       gameId: 1,

@@ -13,6 +13,7 @@
 
 * models
     * queries
+    * method pre/post (interfaces of models)
 
 * middleware
     * skip middlware that is more relevant in integration testing
