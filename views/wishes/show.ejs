@@ -1,7 +1,11 @@
+<h1>Wish List</h1>
 <% if (titles) { %>
-    <% titles.forEach(function(title) { %>
-        <p><%= title %></p>
-    <% }); %>
-<% } else {%>
+  <% titles.forEach(function(title) { %>
+
+    <p><%= title %></p>
+    <button id='del-wish'>Delete</button>
+    <hr>
+  <% }); %>
+  <% } else {%>
     Wish list is empty.
-<% } %>
+  <% } %>

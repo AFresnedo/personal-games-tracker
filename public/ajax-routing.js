@@ -1,7 +1,7 @@
 $(document).ready(function() {
   console.log('ajax-routing loaded on this page');
 
-  $('.delete-wish').click(function(e) {
+  $('.del-wish').click(function(e) {
     e.preventDefault();
     console.log('delete requested for:', $(this).attr('href'));
 
