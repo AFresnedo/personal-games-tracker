@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  let userId = req.params.id;
+  const userId = req.params.id;
   // TODO replace query with a join, if appropriate
   // get users' wishes
   db.wish.findAll({
