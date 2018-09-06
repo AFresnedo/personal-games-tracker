@@ -45,24 +45,6 @@ router.get('/:id', (req, res) => {
   });
 });
 
-router.get('/:id/edit', isOwner, function(req, res) {
+router.delete('/:id', isOwner, function(req, res) {
   res.send('you own this page!');
 });
-
-//
-// filters
-//
-
-// function isOwner(req, res) {
-  // console.log('req in helper', req.params.id);
-  // console.log('req user in helper', req.user.id);
-  // if (req.user.id == req.params.id) {
-    // return true;
-  // }
-  // else {
-    // req.flash('error', 'You do not have access to that page.');
-    // res.redirect('/');
-  // }
-// }
-
-module.exports = router;

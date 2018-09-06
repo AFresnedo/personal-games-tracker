@@ -11,5 +11,6 @@ module.exports = (sequelize, DataTypes) => {
     models.wish.belongsTo(models.game);
   };
 
+  // TODO check if this wish is owned by userId
   return wish;
 };

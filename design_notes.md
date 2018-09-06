@@ -119,3 +119,9 @@
 # Wish/Played Indexes
 
 * instead of a pagination of lists in alphabetical order, provide a search pg
+
+# basic setup of demonstrating CRUD functionality
+* edit game
+* delete wish
+* create wish
+* get wishes of user
