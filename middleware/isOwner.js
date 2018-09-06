@@ -4,9 +4,7 @@ module.exports = function(req, res, next) {
     res.redirect('/auth/login');
   }
   // if user meets identity requirements, continue
-  else if (req.user.id === req.params.id) {
-    console.log('req.user.id is', req.user.id);
-    console.log('ownerId is', req.params.id);
+  else if (req.user.id == req.params.id) {
     next();
   }
   // else user is not allowed on that page

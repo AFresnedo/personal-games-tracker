@@ -45,11 +45,8 @@ router.get('/:id', (req, res) => {
   });
 });
 
-router.get('/:id/edit', isOwner, (req, res) => {
-  console.log('req in route', req.params.id);
-  if (isOwner(req, res)) {
-    res.send('you own this page!');
-  }
+router.get('/:id/edit', isOwner, function(req, res) {
+  res.send('you own this page!');
 });
 
 //
