@@ -10,11 +10,20 @@ describe('Wish Model Unit Tests', function() {
     });
   });
 
-  describe('Get All Wishes of User 1', function() {
-    let userId = 1;
-    db.wish.findAll({
-      where: { userId }
+  // setup basic not-yet-saved testing data
+  before(function(done) {
+    const unsavedOne = Wish.build({
+      gameId: 1,
+      userId: 1,
+      hype: 1,
+      notes: 'yes, they are all 1s'
     });
+  });
+
+  describe('Incorrect owner is denied', function() {
+  });
+
+  describe('Correct owner is confirmed', function() {
   });
 
 });
