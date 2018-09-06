@@ -3,10 +3,10 @@ $(document).ready(function() {
 
   $('.del-wish').click(function(e) {
     e.preventDefault();
-    console.log('delete requested for:', $(this).attr('href'));
+    console.log('delete requested for:', $(this).attr('name'));
 
     $.ajax({
-      url: $(this).attr('href'),
+      url: $(this).attr('name'),
       method: 'DELETE'
     }).done(function(msg) {
       console.log('success msg:', msg);

@@ -20,23 +20,18 @@ router.get('/:id', (req, res) => {
   db.wish.findAll({
     where: { userId }
   }).then(function(wishes) {
-    let games = [];
-    // find every wished game, and add it to games, before rendering view
+    let wishList = [];
+    // find every wished game and attach it to the wish, then send to view
     async.each(wishes, function(wish, done) {
       db.game.findById(wish.gameId).then(function(found) {
-        games.push(found);
+        wishList.push({ wishId: wish.id, gameTitle: found.title });
         done();
       }).catch(function(err) {
         console.log('err finding game from wishlist', err);
         done();
       });
     }, function() {
-      // send only game titles
-      let titles = [];
-      games.forEach(function(game) {
-        titles.push(game.dataValues.title);
-      });
-      res.render('wishes/show', { titles, ownerId: userId });
+      res.render('wishes/show', { wishList, ownerId: userId });
     });
   }).catch(function(err) {
     console.error(err);

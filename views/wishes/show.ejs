@@ -1,10 +1,10 @@
 <h1>Wish List</h1>
-<% if (titles) { %>
-  <% titles.forEach(function(title) { %>
+<% if (wishList) { %>
+  <% wishList.forEach(function(wish) { %>
 
-    <p><%= title %></p>
+    <p><%= wish.gameTitle %></p>
     <% if (currentUser && currentUser.id == ownerId) { %>
-      <button id='del-wish'>Delete</button>
+      <button id='del-wish' value='/wishes/<=wish.wishId>'>Delete</button>
     <% } %>
     <hr>
   <% }); %>
