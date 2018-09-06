@@ -12,5 +12,8 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   // TODO check if this wish is owned by userId
+  wish.prototype.owned = function(userIdent) {
+    // TODO access the association
+  }
   return wish;
 };

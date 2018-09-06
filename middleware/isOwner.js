@@ -9,8 +9,9 @@ module.exports = function(req, res, next) {
   // else confirm user is admin or owner
   else {
     // TODO find wish
+    const wish = db.wish.findById(req.params.id);
     // TODO ask wish if it is owned by req.user
-    if (req.user.admin || false ) {
+    if (req.user.admin || wish.owned(req.user.id) ) {
       res.send('admin status confirmed');
     }
     else {
