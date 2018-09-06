@@ -48,3 +48,5 @@ router.get('/:id', (req, res) => {
 router.delete('/:id', isOwner, function(req, res) {
   res.send('you own this page!');
 });
+
+module.exports = router;
