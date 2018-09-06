@@ -1,7 +1,15 @@
+// for models
 const db = require('../../models');
+// for chai
+const expect = require('chai').expect;
 
 // unit test suite for wish model
 describe('Wish Model Unit Tests', function() {
+
+  //
+  // shared test objects
+  //
+  let unSavedOne;
 
   // prepare database for wish model test suite
   before(function(done) {
@@ -11,8 +19,9 @@ describe('Wish Model Unit Tests', function() {
   });
 
   // setup basic not-yet-saved testing data
-  before(function(done) {
-    const unsavedOne = Wish.build({
+  // TODO determine if done callback is required
+  before(function() {
+    unSavedOne = db.wish.build({
       gameId: 1,
       userId: 1,
       hype: 1,
@@ -20,10 +29,13 @@ describe('Wish Model Unit Tests', function() {
     });
   });
 
-  describe('Incorrect owner is denied', function() {
-  });
-
-  describe('Correct owner is confirmed', function() {
+  describe('owner is properly identified', function() {
+    it('should deny wrong owner', function() {
+      expect(unSavedOne.owned(2)).to.be.false;
+    });
+    it('should confirm correct owner', function() {
+      expect(unSavedOne.owned(1)).to.be.true;
+    });
   });
 
 });
