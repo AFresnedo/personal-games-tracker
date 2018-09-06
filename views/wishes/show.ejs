@@ -3,9 +3,7 @@
   <% titles.forEach(function(title) { %>
 
     <p><%= title %></p>
-    <p>currentUser is: <%= currentUser %></p>
-    <p>ownerId is:<%=  ownerId %></p>
-    <% if (currentUser === ownerId { %>
+    <% if (currentUser.id == ownerId) { %>
       <button id='del-wish'>Delete</button>
     <% } %>
     <hr>
