@@ -3,7 +3,7 @@
   <% titles.forEach(function(title) { %>
 
     <p><%= title %></p>
-    <% if (currentUser.id == ownerId) { %>
+    <% if (currentUser && currentUser.id == ownerId) { %>
       <button id='del-wish'>Delete</button>
     <% } %>
     <hr>
