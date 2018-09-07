@@ -10,6 +10,7 @@ $(document).ready(function() {
       method: 'DELETE'
     }).done(function(msg) {
       console.log('success msg:', msg);
+      window.location = '/wishes/:id';
     }).fail(function(msg) {
       console.log('err msg:', msg);
     });

@@ -18,7 +18,7 @@ router.get('/:id', (req, res) => {
   // TODO replace query with a join, if appropriate
   // get users' wishes
   db.wish.findAll({
-    where: { userId }
+    where: { userId: userId }
   }).then(function(wishes) {
     let wishList = [];
     // find every wished game and attach it to the wish, then send to view
@@ -41,7 +41,13 @@ router.get('/:id', (req, res) => {
 });
 
 router.delete('/:id', isOwner, function(req, res) {
-  res.send('you own this page!');
+  db.wish.destroy({
+    where: { id: req.params.id }
+  }).then(function() {
+    res.send('wish removed');
+  }).catch(function(err) {
+    res.status(500).send('could not delete wish:', err);
+  });
 });
 
 module.exports = router;
