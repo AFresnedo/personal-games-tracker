@@ -15,13 +15,12 @@ module.exports = {
     // get "limit" amount of random game tuples
     let gameTuples = await models.game.findAll(
       {
-        limit: 50,
+        limit: 200,
         order: Sequelize.fn('RANDOM')
       });
-    // get "limit" amount of random user tuples
+    // get all users, so they all have wishes
     let userTuples = await models.user.findAll(
       {
-        limit: 20,
         order: Sequelize.fn('RANDOM')
       });
     // declare tuples to add to wishes
