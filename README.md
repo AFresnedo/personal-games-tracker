@@ -59,8 +59,7 @@ $ ./seeds.sh
 
 ## Routes
 
-> NOTICE: patch, post, delete methods and the /wishes index are not yet
-> implemented
+> Unfinished: PATCH /games/:id, POST /wishes/:id, GET /wishes
 
 | Method | Path | Purpose |
 | ------ | -------------------- | ---------------------------------- |
