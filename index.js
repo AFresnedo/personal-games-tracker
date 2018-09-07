@@ -11,6 +11,15 @@ const session = require('express-session'); // persistant logins
 // declare application
 const app = express();
 
+// load models for session storage
+const db = require('./models');
+// These lines makes the session use sequelize to write session data to a db table
+var SequelizeStore = require('connect-session-sequelize')(session.Store);
+var sessionStore = new SequelizeStore({
+  db: db.sequelize,
+  expiration: 30 * 60 * 1000 // expire in 30 minutes
+});
+
 //
 // set and use statements
 //
@@ -21,8 +30,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  db: db.sequelize
 }));
+sessionStore.sync(); // creates the sessions table
 // flash and passport depend on session
 app.use(flash());
 app.use(passport.initialize());
