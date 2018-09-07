@@ -3,6 +3,7 @@
     <a href="/" class="brand-logo">Home</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if(currentUser) { %>
+          <li><a href="/wishes/<%=currentUser.id%>">My Wishlist</a></li>
         <li><a href="/profile">Profile</a></li>
         <li><a href="/auth/logout">Logout</a></li>
       <% } else { %>
