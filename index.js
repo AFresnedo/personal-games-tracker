@@ -16,8 +16,7 @@ const db = require('./models');
 // These lines makes the session use sequelize to write session data to a db table
 var SequelizeStore = require('connect-session-sequelize')(session.Store);
 var sessionStore = new SequelizeStore({
-  db: db.sequelize,
-  expiration: 30 * 60 * 1000 // expire in 30 minutes
+  db: db.sequelize
 });
 
 //
@@ -31,7 +30,8 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
-  db: db.sequelize
+  store: sessionStore,
+  cookie: { maxAge: 30 * 60 * 1000 }
 }));
 sessionStore.sync(); // creates the sessions table
 // flash and passport depend on session

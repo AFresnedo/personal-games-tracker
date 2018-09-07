@@ -4,7 +4,7 @@
 
     <p><%= wish.gameTitle %></p>
     <% if (currentUser && currentUser.id == ownerId) { %>
-      <button class="del-wish" value="/wishes/<=wish.wishId>">Delete</button>
+      <button class="del-wish" value="/wishes/<%=wish.wishId%>">Delete</button>
     <% } %>
     <hr>
   <% }); %>
