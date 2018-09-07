@@ -1,12 +1,12 @@
 $(document).ready(function() {
   console.log('ajax-routing loaded on this page');
 
-  $('.del-wish').click(function(e) {
+  $('#del-wish').click(function(e) {
     e.preventDefault();
     console.log('delete requested for:', $(this).attr('name'));
 
     $.ajax({
-      url: $(this).attr('name'),
+      url: $(this).attr('value'),
       method: 'DELETE'
     }).done(function(msg) {
       console.log('success msg:', msg);

@@ -15,7 +15,7 @@ const app = express();
 // set and use statements
 //
 app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '/public/'));
+app.use(express.static(__dirname + '/public'));
 app.use(ejsLayouts);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
